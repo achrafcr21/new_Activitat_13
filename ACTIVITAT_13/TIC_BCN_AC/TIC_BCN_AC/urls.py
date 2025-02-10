@@ -21,4 +21,5 @@ urlpatterns = [
     path('centre/', include('centre.urls')),  # Conectar la app
     path('admin/', admin.site.urls),
     path('pasApas/', include('pasApas.urls')),  # Conectar la app
+    path('autenticacio/', include('autenticacio.urls')),  # URLs de autenticación
 ]
