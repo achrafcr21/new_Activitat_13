@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inicio</title>
+</head>
+<body>
+    <h2>Bienvenido</h2>
+    {% if usuario %}
+        <p>Email: {{ usuario.email }}</p>
+        <p>Nombre: {{ usuario.nombre_usuario }}</p>
+        <a href="{% url 'login' %}">Cerrar Sesión</a>
+    {% else %}
+        <p>No has iniciado sesión</p>
+        <a href="{% url 'login' %}">Ir al Login</a>
+    {% endif %}
+</body>
+</html>
