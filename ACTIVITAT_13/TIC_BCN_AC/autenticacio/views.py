@@ -54,3 +54,10 @@ def inicio(request):
             if 'email' in request.session:
                 del request.session['email']
     return render(request, 'autenticacio/inicio.html', {'esta_logueado': False})
+
+def logout(request):
+    if 'usuario_id' in request.session:
+        del request.session['usuario_id']
+    if 'email' in request.session:
+        del request.session['email']
+    return redirect('login')

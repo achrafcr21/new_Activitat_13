@@ -6,9 +6,11 @@
 <body>
     {% if esta_logueado %}
         <h2>Bienvenido, {{ usuario.email }}</h2>
+        <a href="{% url 'logout' %}">Cerrar Sesión</a>
     {% else %}
         <h2>Bienvenido, invitado</h2>
         <p>Por favor, inicia sesión para ver tu contenido personalizado.</p>
+        <a href="{% url 'login' %}">Iniciar Sesión</a>
     {% endif %}
 </body>
 </html>
