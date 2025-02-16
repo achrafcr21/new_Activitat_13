@@ -4,14 +4,11 @@
     <title>Inicio</title>
 </head>
 <body>
-    <h2>Bienvenido</h2>
-    {% if usuario %}
-        <p>Email: {{ usuario.email }}</p>
-        <p>Nombre: {{ usuario.nombre_usuario }}</p>
-        <a href="{% url 'login' %}">Cerrar Sesión</a>
+    {% if esta_logueado %}
+        <h2>Bienvenido, {{ usuario.email }}</h2>
     {% else %}
-        <p>No has iniciado sesión</p>
-        <a href="{% url 'login' %}">Ir al Login</a>
+        <h2>Bienvenido, invitado</h2>
+        <p>Por favor, inicia sesión para ver tu contenido personalizado.</p>
     {% endif %}
 </body>
 </html>
