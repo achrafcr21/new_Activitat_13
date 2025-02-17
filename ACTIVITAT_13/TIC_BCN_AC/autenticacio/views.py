@@ -44,7 +44,20 @@ def inicio(request):
     if usuario_id:
         try:
             usuario = Usuario.objects.get(id=usuario_id)
-            return render(request, 'autenticacio/inicio.html', {'usuario': usuario})
+            context = {
+                'usuario': usuario,
+                'esta_logueado': True
+            }
+            return render(request, 'autenticacio/inicio.html', context)
         except Usuario.DoesNotExist:
             del request.session['usuario_id']
-    return render(request, 'autenticacio/inicio.html')
+            if 'email' in request.session:
+                del request.session['email']
+    return render(request, 'autenticacio/inicio.html', {'esta_logueado': False})
+
+def logout(request):
+    if 'usuario_id' in request.session:
+        del request.session['usuario_id']
+    if 'email' in request.session:
+        del request.session['email']
+    return redirect('login')
